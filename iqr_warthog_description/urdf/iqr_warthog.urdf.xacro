@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iqr_warthog_robot">
+
+  <xacro:property name="package_name" value="iqr_warthog_description"/>
+
+  <!-- Include WARTHOG ROBOT -->
+  <include filename="$(find warthog_description)/urdf/warthog.urdf.xacro"/>
+
+  <!-- Include accessories -->
+  <xacro:include filename="$(find ${package_name})/urdf/vlp16.xacro"/>
+  <xacro:include filename="$(find ${package_name})/urdf/gps_antenna.xacro"/>
+  <xacro:include filename="$(find ${package_name})/urdf/axis_p56s.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro"/> -->
+
+  <!-- base_footprint -->
+  <!-- <link name="base_footprint"/>
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 -0.27" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+  </joint> -->
+  <!-- IQR sensor support -->
+  <!-- <xacro:sensor_support package="${package_name}" parent="mid_mount">
+    <origin xyz="-0.18005552 0 0" rpy="0 0 0"/>
+  </xacro:sensor_support> -->
+
+  <!-- VLP-16 lidar -->
+  <xacro:vlp16 package="${package_name}" parent="top_chassis_link">
+    <origin xyz="-0.3695 0 0.638" rpy="0 0 0"/>
+  </xacro:vlp16>
+
+  <!-- realsense d435i -->
+  <!-- <xacro:sensor_d435i parent="d435_mount">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:sensor_d435i> -->
+
+  <!-- main gps antenna -->
+  <xacro:gps_antenna package="${package_name}" name="main" parent="top_chassis_link">
+    <origin xyz="-0.465 0.543808 0.35" rpy="0 0 0"/>
+  </xacro:gps_antenna>
+
+  <!-- second gps antenna -->
+  <xacro:gps_antenna package="${package_name}" name="second" parent="top_chassis_link">
+    <origin xyz="0.465 0.543808 0.35" rpy="0 0 0"/>
+  </xacro:gps_antenna>
+
+  <!-- PTZ camera -->
+  <xacro:axis_p56s package="${package_name}" parent="top_chassis_link">
+    <origin xyz="-0.1335 0 0.235" rpy="0 3.1415926 3.1415926"/>
+  </xacro:axis_p56s>
+
+  <!-- jy901 link -->
+  <link name="imu_link"/>
+  <joint name="imu_link_joint" type="fixed">
+    <origin xyz="0.089 0 0.235" rpy="0 0 0"/>
+    <parent link="top_chassis_link"/>
+    <child link="imu_link"/>
+  </joint>
+
+</robot>

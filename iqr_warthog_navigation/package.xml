@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>iqr_warthog_navigation</name>
+  <version>0.0.0</version>
+  <description>The iqr_warthog_navigation package</description>
+
+  <author email="hang.liu@iquotient-robotics.com">LiuHnag</author>
+  <maintainer email="hang.liu@iquotient-robotics.com">LiuHnag</maintainer>
+
+  <!-- LICENSE -->
+  <license>MIT</license>
+
+  <!-- DEPEND -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

@@ -1,0 +1,19 @@
+waypoints:
+  { point1: [10000.0, 10000.0, 0.0], point2: [10020.0, 10000, 0.0], point3: [10020.0, 10020.0, 0.0], point4: [10000.0, 10020.0, 0.0], conlum: 20}
+  # column2: 
+  #   {
+  #     point1: {pose: [0.1, 0.2, 0.0], orientation: [0.0, 0.0, 0.0, 1.0]},
+  #     point2: {pose: [0.2, 0.2, 0.0], orientation: [0.0, 0.0, 0.0, 1.0]}
+  #   }
+
+  # column2: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column3: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column4: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column5: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column6: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column7: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column8: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column9: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column10: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column11: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}
+  # column12: {point1: [x, y], point2: [x, y], point3: [x, y], point4: [x, y], point5: [x, y]}

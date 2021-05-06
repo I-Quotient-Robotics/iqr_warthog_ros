@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <arg name="config" default="base" />
+  <arg name="rvizconfig" default="$(find iqr_warthog_description)/rviz/view_model.rviz"/>
+  <arg name="model" default="$(find xacro)/xacro $(find iqr_warthog_description)/urdf/iqr_warthog.urdf.xacro"/>
+
+  <param name="robot_description" 
+         command="$(find warthog_description)/scripts/env_run
+                  $(find warthog_description)/urdf/configs/$(arg config)
+                  $(arg model)"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
+
+</launch>

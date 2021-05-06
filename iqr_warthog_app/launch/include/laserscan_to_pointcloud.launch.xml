@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- run pointcloud_to_laserscan node -->
+  <node pkg="pointcloud_to_laserscan" type="laserscan_to_pointcloud_node" name="laserscan_to_pointcloud">
+    <remap from="cloud" to="cloud_velodyne_only"/>
+    <remap from="scan_in" to="scan"/>
+    <rosparam>
+      queue_size: 2
+      target_frame: laser_link
+      transform_tolerance: 0.02
+      use_inf: true
+    </rosparam>
+  </node>
+</launch>

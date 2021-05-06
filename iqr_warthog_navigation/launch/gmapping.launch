@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="log_type" default="screen"/>
+
+  <include file="$(find iqr_warthog_navigation)/launch/include/gmapping.launch.xml">
+    <!-- <arg name="scan_topic" default="/scan"/> -->
+    <arg name="scan_topic" default="/scan_velodyne_combine"/>
+  </include>
+
+  <!-- move base -->
+
+  <!--rviz display-->
+  <arg name="rviz" default="false"/>
+  <group if="$(arg rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find iqr_warthog_navigation)/rviz/mapping.rviz"/>
+  </group>
+
+</launch>

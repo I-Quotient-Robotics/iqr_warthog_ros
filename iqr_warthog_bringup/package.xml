@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>iqr_warthog_bringup</name>
+  <version>0.0.0</version>
+  <description>The iqr_warthog_bringup package</description>
+
+  <author email="lei.yan@iquotient-robot.com">QuartzYan</author>
+  <maintainer email="lei.yan@iquotient-robot.com">QuartzYan</maintainer>
+
+  <!-- LICENSE -->
+  <license>MIT</license>
+
+  <!-- DEPEND -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

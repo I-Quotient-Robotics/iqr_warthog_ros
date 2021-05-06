@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find iqr_warthog_app)/launch/include/laserscan_to_pointcloud.launch.xml">
+  </include>
+  <include file="$(find iqr_warthog_app)/launch/include/pointcloud_to_laserscan.launch.xml">
+  </include>  
+  <!-- <node pkg="laser_filters" type="scan_to_scan_filter_chain"
+      name="laser_filter">
+    <rosparam command="load" file="$(find iqr_warthog_app)/config/laser_filter.yaml" />
+    <remap from="scan" to="scan_velodyne_combine" />
+  </node> -->
+</launch>
