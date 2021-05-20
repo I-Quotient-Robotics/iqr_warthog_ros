@@ -10,11 +10,16 @@
   </include>
 
   <!-- zed Camera -->
-  <include file="$(find zed_wrapper)/launch/zed.launch">
+  <include file="$(find camera_app)/launch/zed_no_tf.launch">
   </include>
 
   <!-- bag recorder -->
   <include file="$(find bag_recorder)/launch/default.launch">
   </include>
+
+  <arg name="rviz" default="true"/>
+  <group if="$(arg rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find iqr_warthog_app)/rviz/camera_view.rviz"/>
+  </group>
 
 </launch>

@@ -1,7 +1,6 @@
 #include <ros/ros.h>
 #include <actionlib/server/simple_action_server.h>
 #include <actionlib/server/action_server.h>
-#include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
 #include <map>
 #include <string>
@@ -16,19 +15,15 @@
 #include <nav_msgs/Odometry.h>
 #include <geometry_msgs/TransformStamped.h>
 #include <geometry_msgs/PoseWithCovarianceStamped.h>
-#include <iqr_warthog_app/WaypointNavAction.h>
-#include <path_msgs/FollowPathAction.h>
 
-#include <visualization_msgs/Marker.h>
 
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
-#include <path_msgs/DirectionalPath.h>
 
-class PickTaskAction
+class MapPositionSaver
 {
 public:
 
@@ -41,16 +36,16 @@ public:
   
   geometry_msgs::Pose init_position_;
 
-  PickTaskAction(std::string name)
+  MapPositionSaver(std::string name)
   {
-    // odom_sub_ = nh_.subscribe<nav_msgs::Odometry>("odom", 1000, PickTaskAction::OdomCallback, this);
-    // gps_odom_sub_ = nh_.subscribe("gps/odom", 1000, &PickTaskAction::GpsOdomCallback, this);
-    // init_pose_sub_ = nh_.subscribe("/initialpose", 1000, &PickTaskAction::GpsPoseCallback, this);
+    // odom_sub_ = nh_.subscribe<nav_msgs::Odometry>("odom", 1000, MapPositionSaver::OdomCallback, this);
+    // gps_odom_sub_ = nh_.subscribe("gps/odom", 1000, &MapPositionSaver::GpsOdomCallback, this);
+    // init_pose_sub_ = nh_.subscribe("/initialpose", 1000, &MapPositionSaver::GpsPoseCallback, this);
 
     GetParam();
   }
 
-  ~PickTaskAction(void)
+  ~MapPositionSaver(void)
   {
   }
 
@@ -136,7 +131,7 @@ public:
   }
 
   void Thread() {
-    std::thread thread(&PickTaskAction::GpsOdomCallback, this);
+    std::thread thread(&MapPositionSaver::GpsOdomCallback, this);
     thread.detach();    
   }
 };
@@ -144,13 +139,10 @@ public:
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "pick_task_server");
-  PickTaskAction averaging("pick_task");
+  MapPositionSaver averaging("pick_task");
   ros::AsyncSpinner spinner(3);
   spinner.start();
   averaging.Thread();
-  // std::thread thread(PickTaskAction::GpsOdomCallback, 1);
-  // thread.detach();
-  // averaging.MapTfBroadcast();
+
   ros::waitForShutdown();
-  // return 0;
 }

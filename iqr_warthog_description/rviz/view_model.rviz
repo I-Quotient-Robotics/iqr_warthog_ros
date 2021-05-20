@@ -8,7 +8,6 @@ Panels:
         - /Status1
         - /RobotModel1
         - /TF1
-        - /TF1/Frames1
       Splitter Ratio: 0.5031055808067322
     Tree Height: 722
   - Class: rviz/Selection
@@ -66,21 +65,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        axis_p56s_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        axis_p56s_pitch_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        axis_p56s_yaw_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         base_link:
           Alpha: 1
           Show Axes: false
@@ -114,15 +98,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        main_gps_antenna:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        main_gps_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         rear_left_wheel_link:
           Alpha: 1
           Show Axes: false
@@ -138,28 +113,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        second_gps_antenna:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        second_gps_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         top_chassis_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        velodyne:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        vlp16_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -167,123 +124,24 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        axis_p56s_base_link:
-          Value: true
-        axis_p56s_pitch_link:
-          Value: true
-        axis_p56s_yaw_link:
-          Value: true
-        base_link:
-          Value: true
-        chassis_link:
-          Value: true
-        diff_link:
-          Value: true
-        front_left_wheel_link:
-          Value: true
-        front_right_wheel_link:
-          Value: true
-        imu_link:
-          Value: true
-        left_diff_unit_link:
-          Value: true
-        main_gps_antenna:
-          Value: true
-        main_gps_link:
-          Value: true
-        map:
-          Value: true
-        odom:
-          Value: true
-        rear_left_wheel_link:
-          Value: true
-        rear_right_wheel_link:
-          Value: true
-        right_diff_unit_link:
-          Value: true
-        second_gps_antenna:
-          Value: true
-        second_gps_link:
-          Value: true
-        top_chassis_link:
-          Value: true
-        velodyne:
-          Value: true
-        vlp16_link:
-          Value: true
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
       Show Axes: true
-      Show Names: true
+      Show Names: false
       Tree:
-        map:
-          {}
-        odom:
-          base_link:
-            chassis_link:
-              diff_link:
-                {}
-              left_diff_unit_link:
-                front_left_wheel_link:
-                  {}
-                rear_left_wheel_link:
-                  {}
-              right_diff_unit_link:
-                front_right_wheel_link:
-                  {}
-                rear_right_wheel_link:
-                  {}
-              top_chassis_link:
-                axis_p56s_base_link:
-                  axis_p56s_yaw_link:
-                    axis_p56s_pitch_link:
-                      {}
-                imu_link:
-                  {}
-                main_gps_antenna:
-                  main_gps_link:
-                    {}
-                second_gps_antenna:
-                  second_gps_link:
-                    {}
-                vlp16_link:
-                  velodyne:
-                    {}
+        {}
       Update Interval: 0
-      Value: true
-    - Alpha: 1
-      Buffer Length: 1
-      Class: rviz/Path
-      Color: 25; 255; 0
-      Enabled: true
-      Head Diameter: 0.30000001192092896
-      Head Length: 0.20000000298023224
-      Length: 0.30000001192092896
-      Line Style: Lines
-      Line Width: 0.029999999329447746
-      Name: Path
-      Offset:
-        X: 0
-        Y: 0
-        Z: 0
-      Pose Color: 255; 85; 255
-      Pose Style: None
-      Radius: 0.029999999329447746
-      Shaft Diameter: 0.10000000149011612
-      Shaft Length: 0.10000000149011612
-      Topic: /path
-      Unreliable: false
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: map
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -307,25 +165,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.8949930667877197
+      Distance: 2.5
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.8843278884887695
-        Y: -0.42274314165115356
-        Z: 0.49912476539611816
+        X: 0
+        Y: 0
+        Z: 0.5
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.2347966432571411
+      Pitch: 0.25499993562698364
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.12499737739563
+      Yaw: 1.6900001764297485
     Saved: ~
 Window Geometry:
   Displays:

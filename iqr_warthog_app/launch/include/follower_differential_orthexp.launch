@@ -1,0 +1,19 @@
+<?xml version="0.0"?>
+<launch>
+    <group ns="path_follower">
+        <group ns="controller">
+            <!-- parameters, that are dependent of the controller or the robot model -->
+            <group ns="differential_orthexp">
+                <param name="look_ahead_dist" value="1.0" />
+                <param name="k" value="5.0" />
+                <param name="k_o" value="0.0" />
+                <param name="k_g" value="0.01" />
+                <!-- <param name="k_w" value="40" /> -->
+                <param name="k_w" value="0.5" />
+                <param name="k_curv" value="5.0" />
+                <param name="obst_threshold" value="3.0" />
+                <param name="max_angular_velocity" value="0.8" />
+            </group>
+        </group>
+    </group> 
+</launch>

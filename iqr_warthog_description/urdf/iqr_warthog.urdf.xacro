@@ -10,7 +10,8 @@
   <xacro:include filename="$(find ${package_name})/urdf/vlp16.xacro"/>
   <xacro:include filename="$(find ${package_name})/urdf/gps_antenna.xacro"/>
   <xacro:include filename="$(find ${package_name})/urdf/axis_p56s.urdf.xacro"/>
-  <!-- <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro"/> -->
+  <xacro:include filename="$(find ${package_name})/urdf/zed_descr.urdf.xacro"/>
+  <xacro:include filename="$(find ${package_name})/urdf/realsense/urdf/_d435i.urdf.xacro"/>
 
   <!-- base_footprint -->
   <!-- <link name="base_footprint"/>
@@ -24,37 +25,72 @@
     <origin xyz="-0.18005552 0 0" rpy="0 0 0"/>
   </xacro:sensor_support> -->
 
+  <link name="top_model_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iqr_warthog_description/urdf/mesh/support.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 0.9"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="top_model_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="top_chassis_link"/>
+    <child link="top_model_link"/>
+  </joint>
+
+
   <!-- VLP-16 lidar -->
   <xacro:vlp16 package="${package_name}" parent="top_chassis_link">
-    <origin xyz="-0.3695 0 0.638" rpy="0 0 0"/>
+    <origin xyz="-0.4195 0 0.638" rpy="0 0 0"/>
   </xacro:vlp16>
 
   <!-- realsense d435i -->
-  <!-- <xacro:sensor_d435i parent="d435_mount">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </xacro:sensor_d435i> -->
+  <xacro:sensor_d435i parent="top_chassis_link">
+    <origin xyz="0.7558 0 -0.0275" rpy="0 0 0"/>
+  </xacro:sensor_d435i>
 
   <!-- main gps antenna -->
   <xacro:gps_antenna package="${package_name}" name="main" parent="top_chassis_link">
-    <origin xyz="-0.465 0.543808 0.35" rpy="0 0 0"/>
+    <origin xyz="-0.445 0.543808 0.35" rpy="0 0 0"/>
   </xacro:gps_antenna>
 
   <!-- second gps antenna -->
   <xacro:gps_antenna package="${package_name}" name="second" parent="top_chassis_link">
-    <origin xyz="0.465 0.543808 0.35" rpy="0 0 0"/>
+    <origin xyz="0.445 0.543808 0.35" rpy="0 0 0"/>
   </xacro:gps_antenna>
+
+    <!-- main gps antenna -->
+  <!-- <xacro:gps_antenna package="${package_name}" name="main" parent="top_chassis_link">
+    <origin xyz="0.695 0 0.074" rpy="0 0 0"/>
+  </xacro:gps_antenna> -->
+
+ <!-- second gps antenna -->
+  <!-- <xacro:gps_antenna package="${package_name}" name="second" parent="top_chassis_link">
+    <origin xyz="-0.590 0 0.630" rpy="0 0 0"/>
+  </xacro:gps_antenna> -->
 
   <!-- PTZ camera -->
   <xacro:axis_p56s package="${package_name}" parent="top_chassis_link">
-    <origin xyz="-0.1335 0 0.235" rpy="0 3.1415926 3.1415926"/>
+    <origin xyz="-0.1835 0 0.2477" rpy="0 3.1415926 3.1415926"/>
   </xacro:axis_p56s>
 
   <!-- jy901 link -->
   <link name="imu_link"/>
-  <joint name="imu_link_joint" type="fixed">
+  <joint name="imu_jy901_link_joint" type="fixed">
     <origin xyz="0.089 0 0.235" rpy="0 0 0"/>
     <parent link="top_chassis_link"/>
     <child link="imu_link"/>
+  </joint>
+
+  <!-- ZED -->
+  <joint name="imu_link_joint" type="fixed">
+    <origin xyz="-0.337 0 0.605" rpy="0 0 0"/>
+    <parent link="top_chassis_link"/>
+    <child link="zed_base_link"/>
   </joint>
 
 </robot>

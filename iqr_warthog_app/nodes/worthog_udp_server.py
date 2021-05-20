@@ -52,19 +52,6 @@ class BrainControlInterface:
 
       data_combin = self.dateCombin(data)
       rospy.loginfo("%s", data_combin)
-KeyboardDisable
-KeyboardEnable
-StartRecord
-StopRecord
-AutoNavigation
-BaseXForward
-BaseXBack
-BaseZForward
-BaseZBack
-BaseXVelUp
-BaseXVelDown
-BaseXStop
-BaseZStop
 
     if state.code == 13:
       if self.enable_keyboard:
